@@ -312,6 +312,8 @@ static NSArray *RKInsertInMetadataList(NSArray *list, id metadata1, id metadata2
         return self.parentObject;
     } else if ([key isEqualToString:RKRootKey]) {
         return self.rootObject;
+    } else if ([_object isKindOfClass:[NSDictionary class]]) {
+        return [_object objectForKey:key];
     } else {
         return [_object valueForKey:key];
     }
